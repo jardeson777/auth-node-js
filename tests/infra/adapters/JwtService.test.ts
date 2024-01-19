@@ -1,4 +1,4 @@
-import JwtService from "../../src/infra/JwtService";
+import JwtService from "../../../src/infra/adapters/JwtService";
 
 describe("JwtService", () => {
   test("should generate an access token", async () => {
@@ -18,11 +18,8 @@ describe("JwtService", () => {
   test("should verify a valid access token", async () => {
     const jwtService = new JwtService({ tokenSecret: "any_secret" });
     const payload = { id: "123", email: "jardeson777@gmail.com" };
-
     const accessToken = jwtService.generateAccessToken(payload);
     const verificationResult = jwtService.verifyAccessToken(accessToken);
-
-    console.log(verificationResult)
 
     expect(verificationResult.valid).toBe(true);
     expect(verificationResult.decoded?.id).toEqual(payload.id);

@@ -1,4 +1,4 @@
-import { EncryptionService } from "../../src/infra/EncryptionService";
+import { EncryptionService } from "../../../src/infra/adapters/EncryptionService";
 
 describe("EncryptionService", () => {
   test("should encrypt a value", async () => {
